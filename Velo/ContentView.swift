@@ -35,143 +35,135 @@ struct ContentView: View {
     var body: some View {
         @Bindable var veloManager = veloManager
         
-        NavigationSplitView {
-            List(
-                CompanyTab.allCases,
-                id: \.self,
-                selection: $selectedTab
-            ) { tab in
-                NavigationLink(
-                    tab.rawValue.capitalized,
-                    value: tab
-                )
-            }
-            .toolbar {
-                ToolbarItem {
-                    Button(
-                        "Choose a company",
-                        systemImage: "building.2"
-                    ) {
-                        veloManager.currentCompanyId = nil
-                    }
-                }
-            }
-        } detail: {
-            NavigationStack {
-                switch selectedTab {
-                case .home:
-                    List {
-                        Section {
-                            Map()
-                                .frame(minHeight: 300)
-                        }
-                    }
-                    //                        .navigationTitle(selectedCompany.name)
-                case .contacts:
-                    FetchableListView<Contact, NavigationLink>(
-                        selectedItem: $selectedContact,
-                        queryItems: [
-                            .init(
-                                name: "conditions",
-                                value: "company/id = \(veloManager.currentCompanyId ?? -1) and inactiveFlag = false"
-                            ),
-                            .init(
-                                name: "childConditions",
-                                value: "(types/id = 17 or types/id = 21)"
-                            ),
-                            .init(
-                                name: "pageSize",
-                                value: "1000"
-                            ),
-                            .init(
-                                name: "orderBy",
-                                value: "firstName"
-                            )
-                        ]
-                    ) { contact in
-                        NavigationLink(contact.name) { contact in
-                            ContactDetailView()
-                        }
-                    }
-                    .navigationTitle("Contacts")
-                case .configurations:
-                    FetchableListView<Configuration, NavigationLink>(
-                        selectedItem: $selectedConfiguration,
-                        queryItems: [
-                            .init(
-                                name: "conditions",
-                                value: "status/id = 2 and company/id = \(veloManager.currentCompanyId ?? -1)"
-                            ),
-                            .init(
-                                name: "pageSize",
-                                value: "1000"
-                            ),
-                            .init(
-                                name: "orderBy",
-                                value: "name"
-                            )
-                        ]
-                    ) { configuration in
-                        NavigationLink {
-                            ConfigurationDetailView(configurationId: configuration.id)
-                        } label: {
-                            VStack(alignment: .leading) {
-                                Text(configuration.name)
-                                Text("\(configuration.contact?.name ?? "") \(configuration.status?.name ?? "") \(configuration.type?.name ?? "")")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                    }
-                    .navigationTitle("Configurations")
-                case .none:
-                    VStack {
-                        
-                    }
-                }
-            }
-            .navigationTitle(selectedCompany?.name ?? "Companies")
+        VStack {
             
         }
-        .onChange(of: veloManager.currentCompanyId ?? -1, { _, newValue in
-//            Task {
-//                do {
-//                    guard newValue != -1 else { return }
-//                    self.selectedCompany = try await Company.getItem(id: newValue)
-//                    print(selectedCompany?.name)
-//                } catch {
-//                    print()
+//        NavigationSplitView {
+//            List(
+//                CompanyTab.allCases,
+//                id: \.self,
+//                selection: $selectedTab
+//            ) { tab in
+//                NavigationLink(
+//                    tab.rawValue.capitalized,
+//                    value: tab
+//                )
+//            }
+//            .toolbar {
+//                ToolbarItem {
+//                    Button(
+//                        "Choose a company",
+//                        systemImage: "building.2"
+//                    ) {
+//                        veloManager.currentCompanyId = nil
+//                    }
 //                }
 //            }
-        })
-        .fullScreenCover(isPresented: .constant(veloManager.currentCompanyId == nil)) {
-            NavigationStack {
-                FetchableListView<Company, NavigationLink>(
-                    selectedItem: $veloManager.currentCompanyId,
-                    queryItems: [
-                        .init(
-                            name: "conditions",
-                            value: "deletedFlag = false and status/id = 1"
-                        ),
-                        .init(
-                            name: "childConditions",
-                            value: "types/id = 1"
-                        ),
-                        .init(
-                            name: "pageSize",
-                            value: "1000"
-                        ),
-                        .init(
-                            name: "orderBy",
-                            value: "identifier"
-                        )
-                    ]
-                ) { company in
-                    NavigationLink(company.name, value: company.id)
-                }
-                .navigationTitle("Companies")
-            }
-        }
+//        } detail: {
+//            NavigationStack {
+//                switch selectedTab {
+//                case .home:
+//                    List {
+//                        Section {
+//                            Map()
+//                                .frame(minHeight: 300)
+//                        }
+//                    }
+//                    //                        .navigationTitle(selectedCompany.name)
+//                case .contacts:
+//                    FetchableListView<Contact, NavigationLink>(
+//                        selectedItem: $selectedContact,
+//                        queryItems: [
+//                            .init(
+//                                name: "conditions",
+//                                value: "company/id = \(veloManager.currentCompanyId ?? -1) and inactiveFlag = false"
+//                            ),
+//                            .init(
+//                                name: "childConditions",
+//                                value: "(types/id = 17 or types/id = 21)"
+//                            ),
+//                            .init(
+//                                name: "pageSize",
+//                                value: "1000"
+//                            ),
+//                            .init(
+//                                name: "orderBy",
+//                                value: "firstName"
+//                            )
+//                        ]
+//                    ) { contact in
+//                        NavigationLink(contact.name) { contact in
+//                            ContactDetailView()
+//                        }
+//                    }
+//                    .navigationTitle("Contacts")
+//                case .configurations:
+//                    FetchableListView<Configuration, NavigationLink>(
+//                        selectedItem: $selectedConfiguration,
+//                        queryItems: [
+//                            .init(
+//                                name: "conditions",
+//                                value: "status/id = 2 and company/id = \(veloManager.currentCompanyId ?? -1)"
+//                            ),
+//                            .init(
+//                                name: "pageSize",
+//                                value: "1000"
+//                            ),
+//                            .init(
+//                                name: "orderBy",
+//                                value: "name"
+//                            )
+//                        ]
+//                    ) { configuration in
+//                        NavigationLink {
+//                            ConfigurationDetailView(configurationId: configuration.id)
+//                        } label: {
+//                            VStack(alignment: .leading) {
+//                                Text(configuration.name)
+//                                Text("\(configuration.contact?.name ?? "") \(configuration.status?.name ?? "") \(configuration.type?.name ?? "")")
+//                                    .font(.caption)
+//                                    .foregroundStyle(.secondary)
+//                            }
+//                        }
+//                    }
+//                    .navigationTitle("Configurations")
+//                case .none:
+//                    VStack {
+//                        
+//                    }
+//                }
+//            }
+//            .navigationTitle(selectedCompany?.name ?? "Companies")
+//            
+//        }
+//        .fullScreenCover(isPresented: .constant(veloManager.currentCompanyId == nil)) {
+//            NavigationStack {
+//                FetchableListView<Company, NavigationLink>(
+//                    selectedItem: $veloManager.currentCompanyId,
+//                    queryItems: [
+//                        .init(
+//                            name: "conditions",
+//                            value: "deletedFlag = false and status/id = 1"
+//                        ),
+//                        .init(
+//                            name: "childConditions",
+//                            value: "types/id = 1"
+//                        ),
+//                        .init(
+//                            name: "pageSize",
+//                            value: "1000"
+//                        ),
+//                        .init(
+//                            name: "orderBy",
+//                            value: "identifier"
+//                        )
+//                    ]
+//                ) { company in
+//                    NavigationLink(company.name, value: company.id)
+//                }
+//                .navigationTitle("Companies")
+//            }
+//        }
     }
 }
 

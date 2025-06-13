@@ -6,7 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		01EE97F82DFBA43700E19DA8 /* CreateTicketIntent.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 01EE97EF2DFBA43700E19DA8 /* CreateTicketIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
+		01EE97F62DFBA43700E19DA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DA750B32DF7FCFE006AE23B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01EE97EE2DFBA43700E19DA8;
+			remoteInfo = CreateTicketIntent;
+		};
 		1DA750CA2DF7FD00006AE23B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1DA750B32DF7FCFE006AE23B /* Project object */;
@@ -23,15 +34,60 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		01EE97FD2DFBA43700E19DA8 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				01EE97F82DFBA43700E19DA8 /* CreateTicketIntent.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		01EE97EF2DFBA43700E19DA8 /* CreateTicketIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = CreateTicketIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA750BB2DF7FCFE006AE23B /* Velo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Velo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA750C92DF7FD00006AE23B /* VeloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VeloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA750D32DF7FD00006AE23B /* VeloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VeloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		01EE97F92DFBA43700E19DA8 /* Exceptions for "CreateTicketIntent" folder in "CreateTicketIntent" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 01EE97EE2DFBA43700E19DA8 /* CreateTicketIntent */;
+		};
+		01EE994A2DFBACD600E19DA8 /* Exceptions for "Velo" folder in "CreateTicketIntent" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Extensions/String+Extension.swift",
+				Models/Company.swift,
+				Protocols/Fetchable.swift,
+			);
+			target = 01EE97EE2DFBA43700E19DA8 /* CreateTicketIntent */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		01EE97F02DFBA43700E19DA8 /* CreateTicketIntent */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				01EE97F92DFBA43700E19DA8 /* Exceptions for "CreateTicketIntent" folder in "CreateTicketIntent" target */,
+			);
+			path = CreateTicketIntent;
+			sourceTree = "<group>";
+		};
 		1DA750BD2DF7FCFE006AE23B /* Velo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				01EE994A2DFBACD600E19DA8 /* Exceptions for "Velo" folder in "CreateTicketIntent" target */,
+			);
 			path = Velo;
 			sourceTree = "<group>";
 		};
@@ -48,6 +104,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		01EE97EC2DFBA43700E19DA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1DA750B82DF7FCFE006AE23B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,6 +141,7 @@
 				1DA750BD2DF7FCFE006AE23B /* Velo */,
 				1DA750CC2DF7FD00006AE23B /* VeloTests */,
 				1DA750D62DF7FD00006AE23B /* VeloUITests */,
+				01EE97F02DFBA43700E19DA8 /* CreateTicketIntent */,
 				1DA750BC2DF7FCFE006AE23B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +152,7 @@
 				1DA750BB2DF7FCFE006AE23B /* Velo.app */,
 				1DA750C92DF7FD00006AE23B /* VeloTests.xctest */,
 				1DA750D32DF7FD00006AE23B /* VeloUITests.xctest */,
+				01EE97EF2DFBA43700E19DA8 /* CreateTicketIntent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +160,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		01EE97EE2DFBA43700E19DA8 /* CreateTicketIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01EE97FA2DFBA43700E19DA8 /* Build configuration list for PBXNativeTarget "CreateTicketIntent" */;
+			buildPhases = (
+				01EE97EB2DFBA43700E19DA8 /* Sources */,
+				01EE97EC2DFBA43700E19DA8 /* Frameworks */,
+				01EE97ED2DFBA43700E19DA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				01EE97F02DFBA43700E19DA8 /* CreateTicketIntent */,
+			);
+			name = CreateTicketIntent;
+			packageProductDependencies = (
+			);
+			productName = CreateTicketIntent;
+			productReference = 01EE97EF2DFBA43700E19DA8 /* CreateTicketIntent.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
 		1DA750BA2DF7FCFE006AE23B /* Velo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DA750DD2DF7FD00006AE23B /* Build configuration list for PBXNativeTarget "Velo" */;
@@ -102,10 +189,12 @@
 				1DA750B72DF7FCFE006AE23B /* Sources */,
 				1DA750B82DF7FCFE006AE23B /* Frameworks */,
 				1DA750B92DF7FCFE006AE23B /* Resources */,
+				01EE97FD2DFBA43700E19DA8 /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				01EE97F72DFBA43700E19DA8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				1DA750BD2DF7FCFE006AE23B /* Velo */,
@@ -170,9 +259,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					01EE97EE2DFBA43700E19DA8 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 					1DA750BA2DF7FCFE006AE23B = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -203,11 +295,19 @@
 				1DA750BA2DF7FCFE006AE23B /* Velo */,
 				1DA750C82DF7FD00006AE23B /* VeloTests */,
 				1DA750D22DF7FD00006AE23B /* VeloUITests */,
+				01EE97EE2DFBA43700E19DA8 /* CreateTicketIntent */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		01EE97ED2DFBA43700E19DA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1DA750B92DF7FCFE006AE23B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +332,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		01EE97EB2DFBA43700E19DA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1DA750B72DF7FCFE006AE23B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +363,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		01EE97F72DFBA43700E19DA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01EE97EE2DFBA43700E19DA8 /* CreateTicketIntent */;
+			targetProxy = 01EE97F62DFBA43700E19DA8 /* PBXContainerItemProxy */;
+		};
 		1DA750CB2DF7FD00006AE23B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1DA750BA2DF7FCFE006AE23B /* Velo */;
@@ -269,6 +381,66 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		01EE97FB2DFBA43700E19DA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PK8WVYF36Y;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CreateTicketIntent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CreateTicketIntent;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Velo-IT-Group.Velo.CreateTicketIntent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		01EE97FC2DFBA43700E19DA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PK8WVYF36Y;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CreateTicketIntent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CreateTicketIntent;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Velo-IT-Group.Velo.CreateTicketIntent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		1DA750DB2DF7FD00006AE23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -394,7 +566,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PK8WVYF36Y;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -416,7 +590,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -456,7 +630,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -558,6 +732,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		01EE97FA2DFBA43700E19DA8 /* Build configuration list for PBXNativeTarget "CreateTicketIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01EE97FB2DFBA43700E19DA8 /* Debug */,
+				01EE97FC2DFBA43700E19DA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1DA750B62DF7FCFE006AE23B /* Build configuration list for PBXProject "Velo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
