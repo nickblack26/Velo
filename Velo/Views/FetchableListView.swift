@@ -1,70 +1,55 @@
 import SwiftUI
 
-struct CompanyListView: View {
-    @State private var companies: [Company] = []
+struct FetchableListView<Item: Fetchable & Searchable, ItemView: View>: View {
+    @State private var isLoading: Bool = false
     @State private var searchText: String = ""
+    @State private var items: [Item] = []
     
-    @Binding var selectedCompany: Company?
+    @Binding var selectedItem: Item.ID?
+    
+    var queryItems: [URLQueryItem]?
+    
+    @ViewBuilder var itemView: (Item) -> ItemView
     
     var body: some View {
-        var filteredCompanies: [Company] {
+        var filteredItems: [Item] {
             if searchText.isEmpty {
-                return companies
+                return items
             } else {
-                return companies.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+                return items.filter { $0.searchValue.localizedCaseInsensitiveContains(searchText)
+                }
             }
         }
         
-        List(selection: $selectedCompany) {
-            ForEach(filteredCompanies) { company in
-                NavigationLink(company.name, value: company)
+        ZStack {
+            if isLoading {
+                ProgressView()
+            } else {
+                List(
+                    filteredItems,
+                    selection: $selectedItem
+                ) { item in
+                    itemView(item)
+                }
             }
         }
         .task {
+            self.isLoading = true
             do {
-                self.companies = try await PSAManager.shared.getCompanies()
+                self.items = try await Item.getItems(queryItems: queryItems)
             } catch {
                 print("Error: \(error)")
             }
+            self.isLoading = false
         }
         .searchable(text: $searchText)
     }
 }
 
 #Preview {
-    CompanyListView(selectedCompany: .constant(Company.veloExample))
-}
-
-
-struct Company: Fetchable {
-    var id: Int
-    var name: String
-
-    internal var path: String = "/company/companies"
-    
-    static let veloExample: Self = .init(id: 250, name: "Velo IT Group")
-}
-
-struct OtherCompany: Fetchable {
-    var path: String = "/company/companies"
-    
-    var id: Int
-    var name: String
-    
-    static let veloExample: Self = .init(id: 250, name: "Velo IT Group")
-}
-
-
-extension String {
-    func fromBase64() -> String? {
-        guard let data = Data(base64Encoded: self) else {
-            return nil
-        }
-        
-        return String(data: data, encoding: .utf8)
-    }
-    
-    func toBase64() -> String {
-        return Data(self.utf8).base64EncodedString()
+    FetchableListView<Company, Text>(
+        selectedItem: .constant(Company.veloExample.id)
+    ) { company in
+        Text(company.name)
     }
 }

@@ -1,3 +1,5 @@
+import Foundation
+
 struct Contact: Fetchable, Searchable {
     var id: Int
     var firstName: String
@@ -31,6 +33,7 @@ struct CommunicationItem: Identifiable, Codable, Hashable {
     var id: Int
     var type: Reference
     var value: String
+    var contactId: Int?
     var defaultFlag: Bool
     var domain: String?
     var communicationType: String
