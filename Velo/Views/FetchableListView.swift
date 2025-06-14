@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FetchableListView<Item: Fetchable & Searchable, ItemView: View>: View {
+struct FetchableListView<Item: Persistable & Searchable, ItemView: View>: View {
     @State private var isLoading: Bool = false
     @State private var searchText: String = ""
     @State private var items: [Item] = []

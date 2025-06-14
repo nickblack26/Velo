@@ -1,6 +1,6 @@
 import Foundation
 
-struct ContactNote: Fetchable, Searchable {
+struct ContactNote: Persistable, Searchable {
     let id: Int
     let contactID: Int
     let text: String

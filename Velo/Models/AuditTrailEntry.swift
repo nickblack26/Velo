@@ -1,6 +1,6 @@
 import Foundation
 
-struct AuditTrailEntry: Fetchable, Searchable {
+struct AuditTrailEntry: Persistable, Searchable {
     let text: String
     let enteredDate: String
     let enteredBy: String

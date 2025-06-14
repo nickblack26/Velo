@@ -1,6 +1,6 @@
 import Foundation
 
-struct Configuration: Fetchable, Searchable {
+struct Configuration: Persistable, Searchable {
     var id: Int
     var name: String
     var type: Reference?;
