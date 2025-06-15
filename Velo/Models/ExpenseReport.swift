@@ -33,14 +33,22 @@ struct ExpenseReport: Persistable, Searchable {
         self.member = try container.decodeIfPresent(Member.self, forKey: .member)
         self.status = try container.decodeIfPresent(ExpenseReport.Status.self, forKey: .status)
         
-        let dateFormatter = DateFormatter()
         let decodedStart = try container.decodeIfPresent(String.self, forKey: .dateStart)
         let decodedEnd = try container.decodeIfPresent(String.self, forKey: .dateEnd)
-        
-        print(decodedStart, decodedEnd)
-        
-        self.dateStart = dateFormatter.date(from: decodedStart ?? "") ?? Date()
-        self.dateEnd = dateFormatter.date(from: decodedEnd ?? "") ?? Date()
+
+        let isoFormatter = ISO8601DateFormatter()
+
+        if let startString = decodedStart {
+            self.dateStart = isoFormatter.date(from: startString)
+        } else {
+            self.dateStart = nil
+        }
+
+        if let endString = decodedEnd {
+            self.dateEnd = isoFormatter.date(from: endString)
+        } else {
+            self.dateEnd = nil
+        }
     }
    
     

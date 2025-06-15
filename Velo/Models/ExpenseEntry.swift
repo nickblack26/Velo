@@ -49,7 +49,7 @@ struct ExpenseEntry: Persistable, Searchable {
         self.paymentMethod = try container.decodeIfPresent(PaymentType.self, forKey: .paymentMethod)
         self.classification = try container.decodeIfPresent(Classification.self, forKey: .classification)
         
-        let dateFormatter = DateFormatter()
-        self.date = dateFormatter.date(from: try container.decode(String.self, forKey: .date)) ?? .now
+        let isoFormatter = ISO8601DateFormatter()
+        self.date = isoFormatter.date(from: try container.decode(String.self, forKey: .date)) ?? .now
     }
 }
