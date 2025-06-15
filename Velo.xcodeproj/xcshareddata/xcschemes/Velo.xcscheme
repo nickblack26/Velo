@@ -77,12 +77,12 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "CONNECT_WISE_USERNAME"
-            value = "velo+gzqmu9YTWvMsnNz1"
+            value = "velo+maaPiVTeEybbK3SX"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "CONNECT_WISE_PASSWORD"
-            value = "mDcuqcDyNosHKFNy"
+            value = "eCT1NboeMrXq9P3z"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

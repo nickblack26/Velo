@@ -22,6 +22,7 @@ struct ContentView: View {
     @State private var selectedContact: Contact.ID?
     @State private var selectedCompany: Company?
     @State private var selectedTab: CompanyTab? = .home
+    @State private var selectedExpenseReport: ExpenseReport? = ExpenseReport.example
     
     //    var selectedCompany: Company? {
     //        get async throws {
@@ -35,9 +36,22 @@ struct ContentView: View {
     var body: some View {
         @Bindable var veloManager = veloManager
         
-        VStack {
-            
+        NavigationStack {
+            FetchableListView(
+                selectedItem: $selectedExpenseReport,
+                queryItems: [
+                    .init(name: "conditions", value: "member/id = 310"),
+                    .init(name: "orderBy", value: "dateStart desc")
+                ]
+            ) { item in
+                NavigationLink(item.searchValue) {
+                    ExpenseReportDetailView(expenseReport: item)
+                }
+            }
+            .navigationTitle("Expense Reports")            
         }
+        
+//        .navigationSubtitle("Testing")
 //        NavigationSplitView {
 //            List(
 //                CompanyTab.allCases,

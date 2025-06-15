@@ -4,7 +4,7 @@ protocol Searchable: Identifiable {
     var searchValue: String { get }
 }
 
-protocol Persistable: Codable, Identifiable, Hashable {
+protocol Fetchable: Codable, Identifiable, Hashable {
     associatedtype Item: Identifiable, Codable = Self
     static var baseUrl: URL { get }
     static var baseHeaders: [String: String] { get }
@@ -15,17 +15,11 @@ protocol Persistable: Codable, Identifiable, Hashable {
     static var sessionConfiguration: URLSessionConfiguration { get }
     
     /// Read functions
-    static func getItems(queryItems: [URLQueryItem]?) async throws -> [Self]
-    static func getItem(id: Int) async throws -> Self
-    
-    /// Update functions
-    //    static func updateItem(queryItems: [URLQueryItem]?) async throws -> [Self]
-    
-    /// Insert functions
-    static func create(data: Self) async throws -> Self
+    static func getItems(queryItems: [URLQueryItem]?, showLog: Bool) async throws -> [Self]
+    static func getItem(id: Item.ID) async throws -> Self
 }
 
-extension Persistable {
+extension Fetchable {
     static var baseUrl: URL { .init(string: ProcessInfo.processInfo.environment["CONNECT_WISE_URL"]!)! }
     
     static var encodedAuth: String {
@@ -48,8 +42,8 @@ extension Persistable {
     static var session: URLSession { URLSession(configuration: sessionConfiguration) }
 }
 
-extension Persistable {
-    static func getItems(queryItems: [URLQueryItem]? = nil) async throws -> [Self] {
+extension Fetchable {
+    static func getItems(queryItems: [URLQueryItem]? = nil, showLog: Bool = false) async throws -> [Self] {
         var components = URLComponents(
             url: baseUrl.appendingPathComponent(path),
             resolvingAgainstBaseURL: true
@@ -64,10 +58,13 @@ extension Persistable {
         let request = getUrlRequest(for: url)
         
         let (data, _) = try await session.data(for: request)
+        if showLog {
+            print(String(data: data, encoding: .utf8))
+        }
         return try JSONDecoder().decode([Self].self, from: data)
     }
     
-    static func getItem(id: Int) async throws -> Self {
+    static func getItem(id: Item.ID) async throws -> Self {
         let components = URLComponents(
             url: baseUrl.appendingPathComponent(path + "/\(id)"),
             resolvingAgainstBaseURL: true
@@ -83,13 +80,24 @@ extension Persistable {
         return try JSONDecoder().decode(Self.self, from: data)
     }
     
-    static private func getUrlRequest(for url: URL) -> URLRequest {
+    static func getUrlRequest(for url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = baseHeaders
         
         return request
     }
+}
+
+
+protocol Updatable: Fetchable {
     
+}
+
+protocol Creatable: Fetchable {
+    static func create(data: Self) async throws -> Self
+}
+
+extension Creatable {
     static func create(data: Self) async throws -> Self {
         let components = URLComponents(
             url: baseUrl,
@@ -108,3 +116,5 @@ extension Persistable {
         return try JSONDecoder().decode(Self.self, from: data)
     }
 }
+
+typealias Persistable = Fetchable & Updatable & Creatable

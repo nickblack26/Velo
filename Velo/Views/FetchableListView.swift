@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct FetchableListView<Item: Persistable & Searchable, ItemView: View>: View {
+struct FetchableListView<Item: Fetchable & Searchable, ItemView: View>: View {
     @State private var isLoading: Bool = false
     @State private var searchText: String = ""
     @State private var items: [Item] = []
     
-    @Binding var selectedItem: Item.ID?
+    @Binding var selectedItem: Item?
     
     var queryItems: [URLQueryItem]?
     
@@ -13,7 +13,9 @@ struct FetchableListView<Item: Persistable & Searchable, ItemView: View>: View {
     
     var body: some View {
         var filteredItems: [Item] {
+            
             if searchText.isEmpty {
+                print(items.isEmpty)
                 return items
             } else {
                 return items.filter { $0.searchValue.localizedCaseInsensitiveContains(searchText)
@@ -22,15 +24,29 @@ struct FetchableListView<Item: Persistable & Searchable, ItemView: View>: View {
         }
         
         ZStack {
+//            Image(.backgroundPattern)
+//                .resizable()
+//                .ignoresSafeArea()
+//                .scaledToFill()
+//                .opacity(0.1)
+            
             if isLoading {
                 ProgressView()
             } else {
-                List(
-                    filteredItems,
-                    selection: $selectedItem
-                ) { item in
-                    itemView(item)
+                if filteredItems.isEmpty {
+                    ContentUnavailableView(
+                        "No items found",
+                        systemImage: "exclamationmark.triangle"
+                    )
+                } else {
+                    List(
+                        filteredItems,
+                        selection: $selectedItem
+                    ) { item in
+                        itemView(item)
+                    }
                 }
+//                .scrollContentBackground(.hidden)
             }
         }
         .task {
@@ -48,7 +64,7 @@ struct FetchableListView<Item: Persistable & Searchable, ItemView: View>: View {
 
 #Preview {
     FetchableListView<Company, Text>(
-        selectedItem: .constant(Company.veloExample.id)
+        selectedItem: .constant(Company.veloExample)
     ) { company in
         Text(company.name)
     }
