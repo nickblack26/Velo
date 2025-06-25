@@ -3,7 +3,7 @@ import SwiftUI
 import LiveKitComponents
 
 let wsURL = ProcessInfo.processInfo.environment["LIVEKIT_URL"]!
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTA4ODkyMTYsImlzcyI6IkFQSUtkUnlMN2t6czlMOCIsIm5iZiI6MTc1MDg4MjAxNiwic3ViIjoicXVpY2tzdGFydCB1c2VyIHU2aWowaCIsInZpZGVvIjp7ImNhblB1Ymxpc2giOnRydWUsImNhblB1Ymxpc2hEYXRhIjp0cnVlLCJjYW5TdWJzY3JpYmUiOnRydWUsInJvb20iOiJxdWlja3N0YXJ0IHJvb20iLCJyb29tSm9pbiI6dHJ1ZX19.FbXR2MQtMlpG4FYgbWdk2THvuzZdV96koB8uqVwxGYA"
+let token = ""
 
 struct ScreenSharingNotificationRequest: View {
 	var name: String = "Nick Black"
