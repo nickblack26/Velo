@@ -6,24 +6,22 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXContainerItemProxy section */
-		1DA750CA2DF7FD00006AE23B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1DA750B32DF7FCFE006AE23B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1DA750BA2DF7FCFE006AE23B;
-			remoteInfo = Velo;
-		};
-		1DA750D42DF7FD00006AE23B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1DA750B32DF7FCFE006AE23B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1DA750BA2DF7FCFE006AE23B;
-			remoteInfo = Velo;
-		};
-/* End PBXContainerItemProxy section */
+/* Begin PBXBuildFile section */
+		010BCB462E0C7B97003B6A9D /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 010BCB452E0C7B97003B6A9D /* LiveKit */; };
+		010BCB492E0C7BE8003B6A9D /* LiveKitComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 010BCB482E0C7BE8003B6A9D /* LiveKitComponents */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		010BCB412E0C75A3003B6A9D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01EE97FD2DFBA43700E19DA8 /* Embed ExtensionKit Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,25 +35,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010BCB2F2E0C75A2003B6A9D /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		010BCB312E0C75A3003B6A9D /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		1DA750BB2DF7FCFE006AE23B /* Velo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Velo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DA750C92DF7FD00006AE23B /* VeloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VeloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DA750D32DF7FD00006AE23B /* VeloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VeloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1DA750BD2DF7FCFE006AE23B /* Velo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Velo;
-			sourceTree = "<group>";
-		};
-		1DA750CC2DF7FD00006AE23B /* VeloTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = VeloTests;
-			sourceTree = "<group>";
-		};
-		1DA750D62DF7FD00006AE23B /* VeloUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = VeloUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -65,32 +53,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1DA750C62DF7FD00006AE23B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1DA750D02DF7FD00006AE23B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				010BCB462E0C7B97003B6A9D /* LiveKit in Frameworks */,
+				010BCB492E0C7BE8003B6A9D /* LiveKitComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010BCB2E2E0C75A2003B6A9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				010BCB2F2E0C75A2003B6A9D /* UserNotifications.framework */,
+				010BCB312E0C75A3003B6A9D /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1DA750B22DF7FCFE006AE23B = {
 			isa = PBXGroup;
 			children = (
 				1DA750BD2DF7FCFE006AE23B /* Velo */,
-				1DA750CC2DF7FD00006AE23B /* VeloTests */,
-				1DA750D62DF7FD00006AE23B /* VeloUITests */,
+				010BCB2E2E0C75A2003B6A9D /* Frameworks */,
 				1DA750BC2DF7FCFE006AE23B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,8 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				1DA750BB2DF7FCFE006AE23B /* Velo.app */,
-				1DA750C92DF7FD00006AE23B /* VeloTests.xctest */,
-				1DA750D32DF7FD00006AE23B /* VeloUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,6 +98,7 @@
 				1DA750B82DF7FCFE006AE23B /* Frameworks */,
 				1DA750B92DF7FCFE006AE23B /* Resources */,
 				01EE97FD2DFBA43700E19DA8 /* Embed ExtensionKit Extensions */,
+				010BCB412E0C75A3003B6A9D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -126,56 +109,12 @@
 			);
 			name = Velo;
 			packageProductDependencies = (
+				010BCB452E0C7B97003B6A9D /* LiveKit */,
+				010BCB482E0C7BE8003B6A9D /* LiveKitComponents */,
 			);
 			productName = Velo;
 			productReference = 1DA750BB2DF7FCFE006AE23B /* Velo.app */;
 			productType = "com.apple.product-type.application";
-		};
-		1DA750C82DF7FD00006AE23B /* VeloTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1DA750E02DF7FD00006AE23B /* Build configuration list for PBXNativeTarget "VeloTests" */;
-			buildPhases = (
-				1DA750C52DF7FD00006AE23B /* Sources */,
-				1DA750C62DF7FD00006AE23B /* Frameworks */,
-				1DA750C72DF7FD00006AE23B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1DA750CB2DF7FD00006AE23B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				1DA750CC2DF7FD00006AE23B /* VeloTests */,
-			);
-			name = VeloTests;
-			packageProductDependencies = (
-			);
-			productName = VeloTests;
-			productReference = 1DA750C92DF7FD00006AE23B /* VeloTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		1DA750D22DF7FD00006AE23B /* VeloUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1DA750E32DF7FD00006AE23B /* Build configuration list for PBXNativeTarget "VeloUITests" */;
-			buildPhases = (
-				1DA750CF2DF7FD00006AE23B /* Sources */,
-				1DA750D02DF7FD00006AE23B /* Frameworks */,
-				1DA750D12DF7FD00006AE23B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1DA750D52DF7FD00006AE23B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				1DA750D62DF7FD00006AE23B /* VeloUITests */,
-			);
-			name = VeloUITests;
-			packageProductDependencies = (
-			);
-			productName = VeloUITests;
-			productReference = 1DA750D32DF7FD00006AE23B /* VeloUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -190,14 +129,6 @@
 					1DA750BA2DF7FCFE006AE23B = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					1DA750C82DF7FD00006AE23B = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 1DA750BA2DF7FCFE006AE23B;
-					};
-					1DA750D22DF7FD00006AE23B = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 1DA750BA2DF7FCFE006AE23B;
-					};
 				};
 			};
 			buildConfigurationList = 1DA750B62DF7FCFE006AE23B /* Build configuration list for PBXProject "Velo" */;
@@ -209,34 +140,22 @@
 			);
 			mainGroup = 1DA750B22DF7FCFE006AE23B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				010BCB442E0C7B96003B6A9D /* XCRemoteSwiftPackageReference "client-sdk-swift" */,
+				010BCB472E0C7BE8003B6A9D /* XCRemoteSwiftPackageReference "components-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1DA750BC2DF7FCFE006AE23B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				1DA750BA2DF7FCFE006AE23B /* Velo */,
-				1DA750C82DF7FD00006AE23B /* VeloTests */,
-				1DA750D22DF7FD00006AE23B /* VeloUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1DA750B92DF7FCFE006AE23B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1DA750C72DF7FD00006AE23B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1DA750D12DF7FD00006AE23B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,34 +172,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1DA750C52DF7FD00006AE23B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1DA750CF2DF7FD00006AE23B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1DA750CB2DF7FD00006AE23B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1DA750BA2DF7FCFE006AE23B /* Velo */;
-			targetProxy = 1DA750CA2DF7FD00006AE23B /* PBXContainerItemProxy */;
-		};
-		1DA750D52DF7FD00006AE23B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1DA750BA2DF7FCFE006AE23B /* Velo */;
-			targetProxy = 1DA750D42DF7FD00006AE23B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DA750DB2DF7FD00006AE23B /* Debug */ = {
@@ -427,6 +319,8 @@
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) uses your camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME) uses your microphone";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -467,6 +361,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) uses your camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "$(PRODUCT_NAME) uses your microphone";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -495,96 +391,6 @@
 			};
 			name = Release;
 		};
-		1DA750E12DF7FD00006AE23B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK8WVYF36Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Velo-IT-Group.VeloTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Velo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Velo";
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Debug;
-		};
-		1DA750E22DF7FD00006AE23B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK8WVYF36Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Velo-IT-Group.VeloTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Velo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Velo";
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Release;
-		};
-		1DA750E42DF7FD00006AE23B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK8WVYF36Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Velo-IT-Group.VeloUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = Velo;
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Debug;
-		};
-		1DA750E52DF7FD00006AE23B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PK8WVYF36Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Velo-IT-Group.VeloUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = Velo;
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -606,25 +412,39 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DA750E02DF7FD00006AE23B /* Build configuration list for PBXNativeTarget "VeloTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1DA750E12DF7FD00006AE23B /* Debug */,
-				1DA750E22DF7FD00006AE23B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1DA750E32DF7FD00006AE23B /* Build configuration list for PBXNativeTarget "VeloUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1DA750E42DF7FD00006AE23B /* Debug */,
-				1DA750E52DF7FD00006AE23B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		010BCB442E0C7B96003B6A9D /* XCRemoteSwiftPackageReference "client-sdk-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/livekit/client-sdk-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.1;
+			};
+		};
+		010BCB472E0C7BE8003B6A9D /* XCRemoteSwiftPackageReference "components-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/livekit/components-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		010BCB452E0C7B97003B6A9D /* LiveKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 010BCB442E0C7B96003B6A9D /* XCRemoteSwiftPackageReference "client-sdk-swift" */;
+			productName = LiveKit;
+		};
+		010BCB482E0C7BE8003B6A9D /* LiveKitComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 010BCB472E0C7BE8003B6A9D /* XCRemoteSwiftPackageReference "components-swift" */;
+			productName = LiveKitComponents;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1DA750B32DF7FCFE006AE23B /* Project object */;
 }

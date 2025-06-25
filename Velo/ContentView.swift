@@ -23,7 +23,9 @@ struct ContentView: View {
     @State private var selectedCompany: Company?
     @State private var selectedTab: CompanyTab? = .home
     @State private var selectedExpenseReport: ExpenseReport? = ExpenseReport.example
-    
+
+	@State private var isPresented = false
+
     //    var selectedCompany: Company? {
     //        get async throws {
     //            guard let id = veloManager.currentCompanyId else { return nil }
@@ -37,6 +39,10 @@ struct ContentView: View {
         @Bindable var veloManager = veloManager
         
         NavigationStack {
+			Button("Show") {
+				self.isPresented.toggle()
+			}
+
             FetchableListView(
                 selectedItem: $selectedExpenseReport,
                 queryItems: [
@@ -50,7 +56,10 @@ struct ContentView: View {
             }
             .navigationTitle("Expense Reports")            
         }
-        
+//		.floatingPanel(isPresented: $isPresented) {
+//			ScreenSharingNotificationRequest()
+//		}
+
 //        .navigationSubtitle("Testing")
 //        NavigationSplitView {
 //            List(

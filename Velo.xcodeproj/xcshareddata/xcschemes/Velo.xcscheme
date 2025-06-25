@@ -95,6 +95,11 @@
             value = "https://manage.velomethod.com/v4_6_release/apis/3.0"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "LIVEKIT_URL"
+            value = "wss://athena-22sisikp.livekit.cloud"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
