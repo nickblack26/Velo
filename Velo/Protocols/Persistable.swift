@@ -43,7 +43,7 @@ extension Fetchable {
 }
 
 extension Fetchable {
-    static func getItems(queryItems: [URLQueryItem]? = nil, showLog: Bool = false) async throws -> [Self] {
+static func getItems(queryItems: [URLQueryItem]? = nil, showLog: Bool = false) async throws -> [Self] {
         var components = URLComponents(
             url: baseUrl.appendingPathComponent(path),
             resolvingAgainstBaseURL: true

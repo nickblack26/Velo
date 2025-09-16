@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		010BCB462E0C7B97003B6A9D /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 010BCB452E0C7B97003B6A9D /* LiveKit */; };
 		010BCB492E0C7BE8003B6A9D /* LiveKitComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 010BCB482E0C7BE8003B6A9D /* LiveKitComponents */; };
+		1D8B80C42E71048B007A2874 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1D8B80C32E71048B007A2874 /* KeychainAccess */; };
+		1D8B80CC2E7104BE007A2874 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = 1D8B80CB2E7104BE007A2874 /* SwiftJWT */; };
+		1D8B80E02E710602007A2874 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 1D8B80DF2E710602007A2874 /* Auth */; };
+		1D8B80E22E710602007A2874 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1D8B80E12E710602007A2874 /* Supabase */; };
+		1D8B80E52E71061E007A2874 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 1D8B80E42E71061E007A2874 /* Starscream */; };
+		1D8B81D42E711131007A2874 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 1D8B81D32E711131007A2874 /* SFSafeSymbols */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,16 +38,6 @@
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1DE93D812E0B7B680095AEBB /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -63,8 +59,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8B80E52E71061E007A2874 /* Starscream in Frameworks */,
 				010BCB462E0C7B97003B6A9D /* LiveKit in Frameworks */,
 				010BCB492E0C7BE8003B6A9D /* LiveKitComponents in Frameworks */,
+				1D8B80E22E710602007A2874 /* Supabase in Frameworks */,
+				1D8B80CC2E7104BE007A2874 /* SwiftJWT in Frameworks */,
+				1D8B80E02E710602007A2874 /* Auth in Frameworks */,
+				1D8B81D42E711131007A2874 /* SFSafeSymbols in Frameworks */,
+				1D8B80C42E71048B007A2874 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,14 +99,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1DE93D762E0B7B680095AEBB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1DE93D772E0B7B680095AEBB /* NetworkExtension.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +123,12 @@
 			packageProductDependencies = (
 				010BCB452E0C7B97003B6A9D /* LiveKit */,
 				010BCB482E0C7BE8003B6A9D /* LiveKitComponents */,
+				1D8B80C32E71048B007A2874 /* KeychainAccess */,
+				1D8B80CB2E7104BE007A2874 /* SwiftJWT */,
+				1D8B80DF2E710602007A2874 /* Auth */,
+				1D8B80E12E710602007A2874 /* Supabase */,
+				1D8B80E42E71061E007A2874 /* Starscream */,
+				1D8B81D32E711131007A2874 /* SFSafeSymbols */,
 			);
 			productName = Velo;
 			productReference = 1DA750BB2DF7FCFE006AE23B /* Velo.app */;
@@ -161,6 +161,11 @@
 			packageReferences = (
 				010BCB442E0C7B96003B6A9D /* XCRemoteSwiftPackageReference "client-sdk-swift" */,
 				010BCB472E0C7BE8003B6A9D /* XCRemoteSwiftPackageReference "components-swift" */,
+				1D8B80C22E71048B007A2874 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				1D8B80CA2E7104BE007A2874 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
+				1D8B80DE2E710602007A2874 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				1D8B80E32E71061E007A2874 /* XCRemoteSwiftPackageReference "Starscream" */,
+				1D8B81D22E711131007A2874 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1DA750BC2DF7FCFE006AE23B /* Products */;
@@ -316,7 +321,9 @@
 		1DA750DE2DF7FD00006AE23B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = iOS;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = macOS;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				AUTOMATION_APPLE_EVENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = Velo/Velo.entitlements;
@@ -385,7 +392,9 @@
 		1DA750DF2DF7FD00006AE23B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = iOS;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = macOS;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Velo/Velo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -478,6 +487,46 @@
 				minimumVersion = 0.1.4;
 			};
 		};
+		1D8B80C22E71048B007A2874 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1D8B80CA2E7104BE007A2874 /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-JWT.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
+		1D8B80DE2E710602007A2874 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		1D8B80E32E71061E007A2874 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.8;
+			};
+		};
+		1D8B81D22E711131007A2874 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -491,7 +540,36 @@
 			package = 010BCB472E0C7BE8003B6A9D /* XCRemoteSwiftPackageReference "components-swift" */;
 			productName = LiveKitComponents;
 		};
-/* End XCSwiftPackageProductDependency section */
+		1D8B80C32E71048B007A2874 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D8B80C22E71048B007A2874 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		1D8B80CB2E7104BE007A2874 /* SwiftJWT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D8B80CA2E7104BE007A2874 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
+			productName = SwiftJWT;
+		};
+		1D8B80DF2E710602007A2874 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D8B80DE2E710602007A2874 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		1D8B80E12E710602007A2874 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D8B80DE2E710602007A2874 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		1D8B80E42E71061E007A2874 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D8B80E32E71061E007A2874 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+		1D8B81D32E711131007A2874 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D8B81D22E711131007A2874 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
 /* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1DA750B32DF7FCFE006AE23B /* Project object */;

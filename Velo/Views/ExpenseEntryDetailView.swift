@@ -8,30 +8,17 @@ struct ExpenseEntryDetailView: View {
     @State private var classifications: [Classification] = []
     @State private var members: [Member] = []
     
-    @State private var chargeToId: Int?
-    @State private var memberToId: Int? = 310
-    @State private var expenseTypeId: Int? = 47
-    @State private var expensePaymentTypeId: Int? = 2
-    @State private var classificationId: Int? = 2
-    @State private var billableOption: ExpenseEntry.BillableOption = .Billable
-    @State private var amount: Decimal = 0
-    @State private var notes: String = ""
-    @State private var date: Date = .now
-    
     @State private var pickerItems = [PhotosPickerItem]()
     @State private var selectedImages = [Image]()
-    var id: ExpenseEntry.ID
-    
-    init(id: ExpenseEntry.ID) {
-        self.id = id
-    }
+	@Bindable var expenseEntry: ExpenseEntry
     
     var body: some View {
         Form {
             Section("Overview") {
                 Picker(
                     "Charge To",
-                    selection: Binding(value: $chargeToId)
+					selection: $expenseEntry.chargeToId
+//                    selection: Binding(value: $chargeToId)
                 ) {
                     ForEach(chargeCodes) { code in
                         Text(code.name)
@@ -54,17 +41,17 @@ struct ExpenseEntryDetailView: View {
                 
                 DatePicker(
                     "Date",
-                    selection: $date,
+					selection: $expenseEntry.date,
                     displayedComponents: .date
                 )
                 
                 Picker(
                     "Member",
-                    selection: Binding(value: $memberToId)
+					selection: $expenseEntry.member
                 ) {
                     ForEach(members) { member in
                         Text(member.name)
-                            .tag(member.id)
+                            .tag(member)
                     }
                 }
                 .task {
@@ -84,7 +71,7 @@ struct ExpenseEntryDetailView: View {
             Section("Expense Entry") {
                 TextField(
                     "Amount",
-                    value: $amount,
+					value: $expenseEntry.amount,
                     format: .currency(
                         code: Locale.current.currency?.identifier ?? "USD"
                     )
@@ -95,7 +82,7 @@ struct ExpenseEntryDetailView: View {
                 
                 TextField(
                     "Notes",
-                    text: $notes,
+					text: $expenseEntry.notes,
                     prompt: Text("Notes"),
                     axis: .vertical
                 )
@@ -103,11 +90,12 @@ struct ExpenseEntryDetailView: View {
                 
                 Picker(
                     "Expense Type",
-                    selection: Binding(value: $expenseTypeId)
+					selection: $expenseEntry.type
+//                    selection: Binding(value: $expenseTypeId)
                 ) {
                     ForEach(expenseTypes) { item in
                         Text(item.name)
-                            .tag(item.id)
+                            .tag(item)
                     }
                 }
                 .task {
@@ -126,13 +114,14 @@ struct ExpenseEntryDetailView: View {
                 
                 Picker(
                     "Payment Method",
-                    selection: Binding(
-                        value: $expensePaymentTypeId
-                    )
+					selection: $expenseEntry.paymentMethod
+//                    selection: Binding(
+//                        value: $expensePaymentTypeId
+//                    )
                 ) {
                     ForEach(paymentTypes) { item in
                         Text(item.name)
-                            .tag(item.id)
+                            .tag(item)
                     }
                 }
                 .task {
@@ -150,13 +139,14 @@ struct ExpenseEntryDetailView: View {
                 
                 Picker(
                     "Classification",
-                    selection: Binding(
-                        value: $classificationId
-                    )
+					selection: $expenseEntry.classification
+//                    selection: Binding(
+//                        value: $classificationId
+//                    )
                 ) {
                     ForEach(classifications) { item in
                         Text(item.name)
-                            .tag(item.id)
+                            .tag(item)
                     }
                 }
                 .task {
@@ -174,13 +164,13 @@ struct ExpenseEntryDetailView: View {
                 
                 Picker(
                     "Billable Option",
-                    selection: $billableOption
+					selection: $expenseEntry.billableOption
                 ) {
                     ForEach(
                         ExpenseEntry.BillableOption.allCases,
                         id: \.self
                     ) { item in
-                        Text(item.rawValue)
+						Text(item.name)
                     }
                 }
             }
@@ -199,7 +189,8 @@ struct ExpenseEntryDetailView: View {
                 }
             }
         }
-        .navigationTitle(notes)
+		.padding()
+		.navigationTitle(expenseEntry.notes)
         .onChange(of: pickerItems) {
             Task {
                 selectedImages.removeAll()
@@ -213,17 +204,17 @@ struct ExpenseEntryDetailView: View {
         }
         .task {
             do {
-                let entry = try await ExpenseEntry.getItem(id: id)
+//                let entry = try await ExpenseEntry.getItem(id: id)
                 
-                self.chargeToId = entry.chargeToId
-                self.memberToId = entry.member?.id
-                self.expenseTypeId = entry.type.id
-                self.expensePaymentTypeId = entry.paymentMethod?.id
-                self.classificationId = entry.classification?.id
-                self.amount = entry.amount
-                self.billableOption = entry.billableOption ?? .Billable
-                self.notes = entry.notes
-                self.date = entry.date
+//                self.chargeToId = entry.chargeToId
+//                self.memberToId = entry.member?.id
+//                self.expenseTypeId = entry.type.id
+//                self.expensePaymentTypeId = entry.paymentMethod?.id
+//                self.classificationId = entry.classification?.id
+//                self.amount = entry.amount
+//                self.billableOption = entry.billableOption ?? .Billable
+//                self.notes = entry.notes
+//                self.date = entry.date
                 
             } catch {
                 print(error)
@@ -234,7 +225,7 @@ struct ExpenseEntryDetailView: View {
 
 #Preview {
     NavigationStack {
-        ExpenseEntryDetailView(id: 8194)
+//        ExpenseEntryDetailView(id: 8194)
     }
 }
 

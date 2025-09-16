@@ -52,7 +52,10 @@ struct FetchableListView<Item: Fetchable & Searchable, ItemView: View>: View {
         .task {
             self.isLoading = true
             do {
-                self.items = try await Item.getItems(queryItems: queryItems)
+				self.items = try await Item.getItems(
+					queryItems: queryItems,
+					showLog: true
+				)
             } catch {
                 print("Error: \(error)")
             }
@@ -68,4 +71,9 @@ struct FetchableListView<Item: Fetchable & Searchable, ItemView: View>: View {
     ) { company in
         Text(company.name)
     }
+}
+
+struct ManageError: Decodable {
+	let code: String
+	let message: String
 }
